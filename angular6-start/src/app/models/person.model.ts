@@ -1,6 +1,7 @@
 import {Flight} from "../models/flight.model";
 
 export class Person {
+  _id: number;
   isActive: boolean;
   price: string;
   name: string;

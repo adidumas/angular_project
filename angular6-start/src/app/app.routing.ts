@@ -5,7 +5,7 @@ import {FlightInfoComponent} from "./pages/flight-info/flight-info.component";
 
 const routes: Routes = [
   { path: 'persons', component: ListPeopleComponent },
-  { path: 'flights', component: ListFlightsComponent },
+  { path: 'flights/:id', component: ListFlightsComponent },
   { path: 'flight-info', component: FlightInfoComponent },
   {path : '', component : ListPeopleComponent}
 ];

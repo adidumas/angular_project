@@ -1,11 +1,30 @@
 <div>
-  <p *ngFor="let person of persons">aaaaa</p>
-
-  <ul class="list-group">
-    <li class="list-group-item">Cras justo odio</li>
-    <li class="list-group-item">Dapibus ac facilisis in</li>
-    <li class="list-group-item">Morbi leo risus</li>
-    <li class="list-group-item">Porta ac consectetur ac</li>
-    <li class="list-group-item">Vestibulum at eros</li>
-  </ul>
+  <table class="table table-sm">
+    <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Image</th>
+      <th scope="col">Name</th>
+      <th scope="col">Email</th>
+      <th scope="col">Address</th>
+      <th scope="col">Price</th>
+      <th scope="col"></th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let person of persons; let i=index">
+      <th scope="row">{{ i+1 }}</th>
+      <td><img src="{{ person.picture }}"></td>
+      <td>{{ person.name }}</td>
+      <td>{{ person.email }}</td>
+      <td>{{ person.address }}</td>
+      <td>{{ person.price }}</td>
+      <td>
+        <a routerLink = "/flights/{{ person._id }}">
+          See more
+        </a>
+      </td>
+    </tr>
+    </tbody>
+  </table>
 </div>
