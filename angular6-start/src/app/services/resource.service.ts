@@ -7,7 +7,7 @@ export class ResourceService {
   constructor(private http: HttpClient) { }
   baseUrl: string = '/src/api/db.json';
 
-  getUsers() {
+  getPersons() {
     return this.http.get<Person[]>(this.baseUrl);
   }
 }

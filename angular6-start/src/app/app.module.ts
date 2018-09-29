@@ -8,9 +8,12 @@ import { FlightInfoComponent } from './pages/flight-info/flight-info.component';
 import { PersonComponent } from './components/person/person.component';
 import { FlightComponent } from './components/flight/flight.component';
 
+import { DataService } from "./services/data.service";
 import { ResourceService } from "./services/resource.service";
 
 import {HttpClientModule} from "@angular/common/http";
+
+import {routing} from "./app.routing";
 
 @NgModule({
   declarations: [
@@ -23,9 +26,10 @@ import {HttpClientModule} from "@angular/common/http";
   ],
   imports: [
     BrowserModule,
-    HttpClientModule
+    HttpClientModule,
+    routing
   ],
-  providers: [ResourceService],
+  providers: [ResourceService, DataService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

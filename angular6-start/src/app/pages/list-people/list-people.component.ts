@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { ResourceService } from "../../services/resource.service";
+import { Component, OnInit, Input } from '@angular/core';
+import { DataService } from "../../services/data.service";
 import {Person} from "../../models/person.model";
 
 @Component({
@@ -9,16 +9,11 @@ import {Person} from "../../models/person.model";
 })
 export class ListPeopleComponent implements OnInit {
 
-  persons: Person[];
+    constructor(private dataService: DataService) { }
 
-  constructor(private resourceService: ResourceService) { }
+    persons: Person[];
 
-  ngOnInit() {
-    this.resourceService.getUsers()
-        .subscribe( data => {
-            console.log('data', data);
-          this.persons = data;
-        });
-  }
-
+    ngOnInit() {
+        this.dataService.persons.subscribe(persons => this.persons = persons);
+    }
 }
