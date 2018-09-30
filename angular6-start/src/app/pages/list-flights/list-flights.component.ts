@@ -18,6 +18,10 @@ export class ListFlightsComponent implements OnInit {
   flights: Flight[];
   companiesOptions: string[];
 
+  cityOriginSearch: string;
+  cityOriginDestination: string;
+  company: string;
+
   ngOnInit() {
     this.companiesOptions = [];
     this.dataService.persons.subscribe(persons => {
@@ -28,6 +32,12 @@ export class ListFlightsComponent implements OnInit {
         this.companiesOptions.push(flight.company);
       }
     });
+  }
+
+  clearFilters() {
+    this.cityOriginSearch = null;
+    this.cityOriginDestination = null;
+    this.company = null;
   }
 
 }

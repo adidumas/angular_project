@@ -1,23 +1,33 @@
 <div>
-  <div class="input-group mb-3">
-    <div class="input-group-prepend">
-      <span class="input-group-text" id="basic-addon1">City of origin</span>
+  <div class="row">
+    <div class="input-group mb-3">
+      <div class="input-group-prepend">
+        <span class="input-group-text" id="basic-addon1">City of origin</span>
+      </div>
+      <input [(ngModel)]="cityOriginSearch" type="text" class="form-control" placeholder="Search" aria-label="City origin" aria-describedby="basic-addon1">
     </div>
-    <input [(ngModel)]="cityOriginSearch" type="text" class="form-control" placeholder="Search" aria-label="City origin" aria-describedby="basic-addon1">
   </div>
 
-  <div class="input-group mb-3">
-    <div class="input-group-prepend">
-      <span class="input-group-text" id="basic-addon2">City of destination</span>
+  <div class="row">
+    <div class="input-group mb-3">
+      <div class="input-group-prepend">
+        <span class="input-group-text" id="basic-addon2">City of destination</span>
+      </div>
+      <input [(ngModel)]="cityOriginDestination" type="text" class="form-control" placeholder="Search" aria-label="City destination" aria-describedby="basic-addon2">
     </div>
-    <input [(ngModel)]="cityOriginDestination" type="text" class="form-control" placeholder="Search" aria-label="City destination" aria-describedby="basic-addon2">
   </div>
 
-  <select  [(ngModel)]="company">
-    <option *ngFor="let company of companiesOptions" value={{company}}>
-      {{company}}
-    </option>
-  </select>
+  <div class="row mb-3">
+    <select  [(ngModel)]="company">
+      <option *ngFor="let company of companiesOptions" value={{company}}>
+        {{company}}
+      </option>
+    </select>
+  </div>
+
+  <div class="row mb-3" [hidden]="!cityOriginSearch && !cityOriginDestination && !company">
+    <button (click)="clearFilters()" type="button" class="btn btn-outline-primary">Remove filters</button>
+  </div>
 
   <div class="row list-flight-item" *ngFor="let flight of flights | filter : cityOriginSearch : cityOriginDestination : company">
     <div class="col-md-4">
