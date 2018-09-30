@@ -1,3 +1,46 @@
-<p>
-  list-flights works!
-</p>
+<div>
+  <div class="input-group mb-3">
+    <div class="input-group-prepend">
+      <span class="input-group-text" id="basic-addon1">City of origin</span>
+    </div>
+    <input [(ngModel)]="cityOriginSearch" type="text" class="form-control" placeholder="Search" aria-label="City origin" aria-describedby="basic-addon1">
+  </div>
+
+  <div class="input-group mb-3">
+    <div class="input-group-prepend">
+      <span class="input-group-text" id="basic-addon2">City of destination</span>
+    </div>
+    <input [(ngModel)]="cityOriginDestination" type="text" class="form-control" placeholder="Search" aria-label="City destination" aria-describedby="basic-addon2">
+  </div>
+
+  <select  [(ngModel)]="company">
+    <option *ngFor="let company of companiesOptions" value={{company}}>
+      {{company}}
+    </option>
+  </select>
+
+  <table class="table table-sm">
+    <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Company</th>
+      <th scope="col">City origin</th>
+      <th scope="col">City destination</th>
+      <th scope="col"></th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let flight of flights | filter : cityOriginSearch : cityOriginDestination : company; let i=index">
+      <th scope="row">{{ i+1 }}</th>
+      <td>{{ flight.company }}</td>
+      <td>{{ flight.cityOrigin }}</td>
+      <td>{{ flight.cityDestination }}</td>
+      <td>
+        <a routerLink = "/fight-info/{{ person._id }}/{{ i }}">
+          See more
+        </a>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+</div>
