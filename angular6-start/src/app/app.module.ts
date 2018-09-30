@@ -13,13 +13,15 @@ import { FormsModule } from '@angular/forms';
 
 import {routing} from "./app.routing";
 import { FilterPipe } from './filters/filter.pipe';
+import { AboutComponent } from './pages/about/about.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ListPeopleComponent,
     ListFlightsComponent,
-    FilterPipe
+    FilterPipe,
+    AboutComponent
   ],
   imports: [
     BrowserModule,

@@ -1,30 +1,18 @@
 <div>
-  <table class="table table-sm">
-    <thead>
-    <tr>
-      <th scope="col">#</th>
-      <th scope="col">Image</th>
-      <th scope="col">Name</th>
-      <th scope="col">Email</th>
-      <th scope="col">Address</th>
-      <th scope="col">Price</th>
-      <th scope="col"></th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr *ngFor="let person of persons; let i=index">
-      <th scope="row">{{ i+1 }}</th>
-      <td><img src="{{ person.picture }}"></td>
-      <td>{{ person.name }}</td>
-      <td>{{ person.email }}</td>
-      <td>{{ person.address }}</td>
-      <td>{{ person.price }}</td>
-      <td>
-        <a routerLink = "/flights/{{ person._id }}">
-          See flights
-        </a>
-      </td>
-    </tr>
-    </tbody>
-  </table>
+  <div *ngFor="let person of persons" class="row list-people-item">
+    <div class="col-md-4">
+      <img src="{{ person.picture }}">
+      {{ person.name }}
+    </div>
+    <div class="col-md-6">
+      <p><span class="font-weight-bold">Email: </span>{{ person.email }}</p>
+      <p><span class="font-weight-bold">Adress: </span>{{ person.address }}</p>
+      <p><span class="font-weight-bold">Price: </span>{{ person.price }}</p>
+    </div>
+    <div class="col-md-2">
+      <a routerLink = "/flights/{{ person._id }}">
+        See flights
+      </a>
+    </div>
+  </div>
 </div>
