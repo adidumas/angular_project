@@ -10,8 +10,9 @@ export class DataService {
 
   constructor() { }
 
-  changePersons(person: Person) {
-    this.personsSource.next(person)
+  changePersons(persons: Person[]) {
+    console.log('persons', persons);
+    this.personsSource.next(persons);
   }
 
 }

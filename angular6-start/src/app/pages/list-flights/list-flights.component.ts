@@ -14,7 +14,6 @@ export class ListFlightsComponent implements OnInit {
   constructor(private dataService: DataService, private route: ActivatedRoute) { }
 
   persons: Person[];
-  person: Person;
   flights: Flight[];
   companiesOptions: string[];
 
@@ -26,8 +25,7 @@ export class ListFlightsComponent implements OnInit {
     this.companiesOptions = [];
     this.dataService.persons.subscribe(persons => {
       this.persons = persons;
-      this.person =  this.persons.filter(x => x._id == this.route.snapshot.paramMap.get('id'))[0];
-      this.flights = this.person.flights;
+      this.flights = this.persons.filter(x => x._id.toString() == this.route.snapshot.paramMap.get('id').toString())[0].flights;
       for (let flight of this.flights) {
         this.companiesOptions.push(flight.company);
       }
